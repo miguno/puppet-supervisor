@@ -88,7 +88,7 @@ define supervisor::service (
     require => Class['supervisor'],
   }
 
-  if $config_file {
+  if $config_file != '' {
     file { "${supervisor::params::conf_dir}/${name}.conf":
       ensure  => $config_ensure,
       source  => $config_file,
